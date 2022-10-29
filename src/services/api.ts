@@ -1,4 +1,4 @@
-/*
+export const hola = ""/*
 import axios, { AxiosRequestConfig } from "axios";
 
 export default {

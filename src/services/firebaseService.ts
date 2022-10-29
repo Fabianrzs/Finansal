@@ -1,3 +1,4 @@
+export const hola = ""/*
 import { UserLogin, UserRegister } from "../models/User";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/Firebase";
@@ -22,3 +23,4 @@ export default{
     }
   }
 }
+*/
