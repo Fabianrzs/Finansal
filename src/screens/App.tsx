@@ -1,7 +1,7 @@
 import React from "react";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import StackNavigator from "../routes/StackNavigator";
 import { NavigationContainer } from "@react-navigation/native";
-import StackNavigator from "./src/routes/StackNavigator";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <NavigationContainer>
         <StackNavigator/>
       </NavigationContainer>
-    </GestureHandlerRootView>
+  </GestureHandlerRootView>
   )
 };
 
