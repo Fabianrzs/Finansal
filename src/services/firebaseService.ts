@@ -1,21 +1,21 @@
-export const hola = ""/*
+
 import { UserLogin, UserRegister } from "../models/User";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../utils/Firebase";
+import { auth } from "../utils/FireBase";
+
 
 export default{
-  async login(data:UserLogin){
+  async login({ email,password }:UserLogin){
     try {
-      const response = await signInWithEmailAndPassword(auth,data.userName, data.password);
+      const response = await auth.signInWithEmailAndPassword(email, password);
       return response;
     }catch (err){
       console.log(err);
       throw { err }
     }
   },
-  async register(data:UserRegister){
+  async register({ email,password }:UserRegister){
     try {
-      const response = await createUserWithEmailAndPassword(auth,data.userName, data.password);
+      const response = await auth.createUserWithEmailAndPassword(email, password);
       return response;
     }catch (err){
       console.log(err);
@@ -23,4 +23,4 @@ export default{
     }
   }
 }
-*/
+

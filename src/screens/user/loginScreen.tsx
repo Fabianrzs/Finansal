@@ -3,26 +3,30 @@ import { LoginValues, UserLogin } from "../../models/User";
 import Form from "../../components/common/Form";
 import Input from "../../components/common/Input";
 import Button from "../../components/common/Button";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Modal from "../../components/common/Modal";
 import { styles } from "../../themes/scream/user/Login.themes";
 import Logo from "../../components/logo";
 import Background from "../../components/background";
 import { useForm } from "../../hooks/useForm";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function LoginScreen ({ navigation }:any){
 
   const [open, setOpen] = useState<boolean>(false)
   const [message, setMessage] = useState<string>("");
-  const { onChange, form, userName, password } = useForm<UserLogin>(LoginValues)
+  const { onChange, form, email, password } = useForm<UserLogin>(LoginValues)
+  
+  const {signIn} = useContext(AuthContext)
+  
   
   const onSubmit = () => {
-      console.log(form);
-    }
+      signIn(form)
+  }
   
   const Form = <View>
-    <Input onChange={onChange} value={userName} label={'Nombre de Usuario'}
-           name={"userName"} keyboardType={"default"}/>
+    <Input onChange={onChange} value={email} label={'Nombre de Usuario'}
+           name={"email"} keyboardType={"default"}/>
     <Input onChange={onChange} value={password} label={'Contraseña'}
            name={"password"}  keyboardType={"default"} secureTextEntry={true}/>
   </View>

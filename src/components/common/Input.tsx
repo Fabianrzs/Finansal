@@ -33,7 +33,7 @@ export default function Input(props: InputProps){
         defaultValue={defaultValue} style={styles.inputField}
         placeholder={placeholder} placeholderTextColor={placeholderTextColor}
         keyboardType = {keyboardType} underlineColorAndroid={dark? secondaryWhite :lightWhite}
-        secureTextEntry={secureTextEntry} selectionColor={lightWhite}
+        secureTextEntry={secureTextEntry} selectionColor={dark? secondaryWhite :lightWhite}
         />
     </View>
   )

@@ -1,27 +1,29 @@
 import { Text, View } from "react-native";
-/*import { SubmitHandler, useForm } from "react-hook-form";*/
 import { LoginValues, RegisterValues, UserLogin, UserRegister } from "../../models/User";
 import Form from "../../components/common/Form";
 import Input from "../../components/common/Input";
 import { darkBlack, lightWhite, primaryBlue } from "../../themes/_varibles";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "../../components/common/Button";
 import Modal from "../../components/common/Modal";
 import { styles } from "../../themes/scream/user/Login.themes";
 import Background from "../../components/background";
 import { useForm } from "../../hooks/useForm";
+import { AuthContext } from "../../context/AuthContext";
 
 
 export default function RegisterScreen ({ navigation }:any){
   
   
   const [open, setOpen] = useState(false)
-  const { onChange, form, userName,
+  const { onChange, form,
     password,firstName,lastName,email } =
     useForm<UserRegister>(RegisterValues)
   
+  const {signUp} = useContext(AuthContext)
+  
   const onSubmit = () => {
-    console.log(form);
+    signUp(form)
   }
   
   const Form = <View>
@@ -31,10 +33,8 @@ export default function RegisterScreen ({ navigation }:any){
            name={'lastName'} label={'Apellido'}  keyboardType={"default"} dark/>
     <Input onChange={onChange} value={email}
            name={'email'} label={'Correo '}  keyboardType={"email-address"} dark/>
-    <Input onChange={onChange} value={userName}
-           name={'userName'} label={'Nombre de Usuario'}  keyboardType={"default"} dark/>
     <Input onChange={onChange} value={password}
-           name={'password'} label={'Nombre '}  keyboardType={"default"}
+           name={'password'} label={'Contraseña '}  keyboardType={"default"}
            secureTextEntry={true} dark/>
   </View>
   

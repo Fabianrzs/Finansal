@@ -18,9 +18,9 @@ export const styles = StyleSheet.create({
     marginTop: 25,
   },
   buttonLogear:{
-    alignItems: "flex-start",
-    marginLeft:-20,
-    marginBottom: 15
+    position:'absolute',
+    top: 30,
+    left: 15
   },
   textButton:{
     fontSize: 15,

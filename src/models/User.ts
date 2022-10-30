@@ -1,10 +1,10 @@
 export interface UserLogin {
-  userName: string
+  email: string
   password: string
 }
 
 export const LoginValues: UserLogin = {
-  userName: '',
+  email: '',
   password: ''
 }
 
@@ -12,13 +12,11 @@ export interface UserRegister{
   firstName: string
   lastName: string
   email:string
-  userName: string
   password: string
 }
 export const RegisterValues: UserRegister = {
   firstName: '',
   lastName: '',
   email:'',
-  userName: '',
   password: '',
 }
