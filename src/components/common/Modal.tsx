@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal as ModalNative, ModalBaseProps, Pressable, Text, View } from "react-native";
+import { Modal as ModalNative, Pressable, Text, View } from "react-native";
 import { styles } from "../../themes/components/common/Modal.themes";
 
 interface ModalProps{
@@ -10,10 +10,12 @@ interface ModalProps{
   transparent?: boolean;
   visible: boolean;
   setVisible: Function;
+  optionalFuction? : Function;
 }
 
 export default function Modal (props: ModalProps){
-  const {title ,animationType, visible, transparent, body, animated, setVisible } = props
+  const {title ,animationType, visible, transparent,
+    body, animated, setVisible,optionalFuction } = props
   return(
     <View>
       <ModalNative
@@ -33,7 +35,10 @@ export default function Modal (props: ModalProps){
             </View>
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => setVisible(!visible)}
+              onPress={() => {
+                setVisible(!visible);
+                optionalFuction && optionalFuction();
+              }}
             >
               <Text style={styles.textStyle}>Aceptar</Text>
             </Pressable>

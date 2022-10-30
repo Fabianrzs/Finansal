@@ -1,6 +1,7 @@
 
 import { UserLogin, UserRegister } from "../models/User";
 import { auth } from "../utils/FireBase";
+import firebase from "firebase";
 
 
 export default{
@@ -8,18 +9,18 @@ export default{
     try {
       const response = await auth.signInWithEmailAndPassword(email, password);
       return response;
-    }catch (err){
-      console.log(err);
-      throw { err }
+    }catch (error){
+      console.log({ error });
+      throw { error }
     }
   },
   async register({ email,password }:UserRegister){
     try {
       const response = await auth.createUserWithEmailAndPassword(email, password);
       return response;
-    }catch (err){
-      console.log(err);
-      throw { err }
+    }catch (error){
+      console.log({ error });
+      throw { error }
     }
   }
 }

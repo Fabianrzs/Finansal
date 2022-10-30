@@ -1,9 +1,11 @@
-import React, { createContext, useReducer, useState } from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { authReducer, AuthState } from "../store/user/reducer";
 import { UserLogin, UserRegister } from "../models/User";
 import localApi  from "../services/localApi";
 import api from "../services/api";
-import firebase from "../services/firebaseService";
+import firebase from "../services/firebaseAuth";
+import { checkPluginState } from "react-native-reanimated/lib/types";
 
 type AuthContextProps = {
   errorMessage: string;
@@ -29,32 +31,63 @@ export const AuthProvider = ({children}: {children: JSX.Element | JSX.Element[]}
   
   const [ state, dispatch ] = useReducer( authReducer, authInicialState );
   
+  useEffect(()=>{
+    checkToken().then()
+  },[])
+  
+  const checkToken = async () =>{
+    const data = await AsyncStorage.getItem('token');
+    !data && dispatch({type: 'no-auth'})
+    dispatch({
+      type: 'signUp',
+      payload: {
+        token : data as string,
+        user: data
+      }
+    })
+  }
+  
   const {apiRestPost} = api
   const {login, register} =firebase
   
   const signUp = async (data: UserRegister) => {
     try {
-      const response = await register(data)
-      console.log(response);
-      return response
-    }catch (error){
-      console.log({error});
+      const { user } = await register(data)
+      dispatch({
+        type: 'signUp',
+        payload: {
+          token: user?.refreshToken as string,
+          user: user
+        }
+      });
+    }catch (error: any){
+      dispatch({type: 'addError', payload : error?.error.toString() })
     }
   };
   const signIn = async (data: UserLogin) => {
     try {
-      const response = await login(data)
-      console.log(response);
-      return response
-    }catch (error){
-      console.log({error});
+      const { user } = await login(data)
+      console.log("Respuesta ",user)
+      dispatch({
+        type: 'signUp',
+        payload: {
+          token: user?.refreshToken as string,
+          user: user
+        }
+      });
+      
+      await AsyncStorage.setItem('token', user?.refreshToken as string)
+      
+    }catch (error: any ){
+      dispatch({type: 'addError', payload : error?.error.toString() })
     }
   };
-  const logOut = () => {
-  
+  const logOut = async () => {
+    await AsyncStorage.removeItem('token')
+    dispatch({type: 'logout'})
   };
   const removeError = () => {
-  
+    dispatch({type: "removeError"})
   };
   
   return (
