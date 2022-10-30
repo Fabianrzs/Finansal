@@ -1,24 +1,44 @@
-import { DELETE_USER_DATA, RESET_USER_ERROR, SET_USER_DATA, USER_DATA_FAILED, USER_DATA_LOADING } from "../ActionTypes";
+import {AddError, Logout, NoAuth, RemoveError, SignUp,} from "../ActionTypes";
+import { AuthAction } from "./actions";
 
-const INITIAL_STATE = {
-  isLoading: false,
-  error: null,
-  isLoggedIn: false,
-  data: {},
-};
+export interface AuthState {
+  errorMessage: string,
+  token: string | null,
+  user: any
+  status: 'checking' | 'auth' | 'no-auth'
+}
 
-export const User = (state = INITIAL_STATE, action:any) => {
+export const authReducer = (state:AuthState, action:AuthAction):AuthState  => {
   switch (action.type) {
-    case SET_USER_DATA:
-      return { ...state, isLoading: false, error: null, isLoggedIn: true, data: action.payload };
-    case USER_DATA_LOADING:
-      return { ...state, isLoading: true, error: null, isLoggedIn: false, data: {} };
-    case USER_DATA_FAILED:
-      return { ...state, isLoading: false, error: action.payload };
-    case DELETE_USER_DATA:
-      return { ...state, isLoading: false, error: null, isLoggedIn: false, data: {} };
-    case RESET_USER_ERROR:
-      return { ...state, error: null, isLoading: false };
+    case AddError:
+      return {
+        ...state,
+        user: null,
+        status : 'no-auth',
+        token: null,
+        errorMessage: action.payload
+      };
+    case RemoveError:
+      return {
+        ...state,
+        errorMessage: ''
+      };
+    case SignUp:
+      return {
+        ...state,
+        errorMessage: '',
+        status: 'auth',
+        token: action.payload.token,
+        user: action.payload.user
+      };
+    case Logout:
+    case NoAuth:
+      return {
+        ...state,
+        status : 'no-auth',
+        user: null,
+        token: null
+      };
     default:
       return state;
   }

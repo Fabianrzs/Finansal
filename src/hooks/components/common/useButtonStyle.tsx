@@ -49,7 +49,6 @@ export default function useButtonStyle (typeButton:string | undefined, colorText
   useEffect(()=>{
     stylesButton()
     stylesText()
-    console.log(button);
   },[])
   
   return{

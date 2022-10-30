@@ -1,44 +1,40 @@
 import React from "react";
-/*import { useFormContext, Controller } from "react-hook-form";*/
 import { KeyboardType, Text, TextInput, View } from "react-native";
-import { styles } from "../../themes/components/common/Input.themes";
-import { darkBlack, lightWhite } from "../../themes/_varibles";
+import { stylesDark, stylesLigth } from "../../themes/components/common/Input.themes";
+import { darkBlack, lightWhite, secondaryWhite } from "../../themes/_varibles";
+import { FormContext } from "./Form";
+
 type InputProps = {
   label: string
+  name: string
+  onChange: Function
+  value: any
   keyboardType: KeyboardType
   defaultValue?: string|undefined
   secureTextEntry? : boolean
   placeholder?: string
-  rules?: string
+  rules?: any
+  placeholderTextColor?: string
+  dark?:boolean
 }
+
 export default function Input(props: InputProps){
-  const { defaultValue, secureTextEntry, label, placeholder, keyboardType } = props
-/*/!*  const formContext = useFormContext();*!/
-  const {control, formState: {errors}} = formContext*/
-  /*const { field } = control({ name, rules, defaultValue });*/
+  
+  const { defaultValue, secureTextEntry, name, label,
+    rules, placeholder, keyboardType, placeholderTextColor, onChange, value, dark } = props
+  
+  const styles = dark? stylesDark : stylesLigth;
+  
   return(
-    <View /*style={styles.container}*/>
-      {label && (<Text /*style={styles.label}*/>{label}</Text>)}
-      <View /*style={styles.inputContainer}*/>
-        <TextInput
-          style={styles.input}
-          {...props}
+    <View style={styles.inputContainer}>
+      <Text style={styles.label}>{label}</Text>
+      <TextInput
+        onChangeText={value => onChange(value, name)} value={value}
+        defaultValue={defaultValue} style={styles.inputField}
+        placeholder={placeholder} placeholderTextColor={placeholderTextColor}
+        keyboardType = {keyboardType} underlineColorAndroid={dark? secondaryWhite :lightWhite}
+        secureTextEntry={secureTextEntry} selectionColor={lightWhite}
         />
-      </View>
     </View>
   )
 }
-
-/*
-<Controller key={label} name={label} control={control}
-            render={({field: {onChange,value, onBlur}}) => (
-              <TextInput variant="filled" color={"on-surface"}
-                         inputStyle={{color:darkBlack,
-                           backgroundColor: lightWhite,
-                           borderStyle:"solid"}}
-                         onBlur={onBlur} label={label} defaultValue={defaultValue}
-                         placeholder={placeholder} onChangeText={value => onChange(value)}
-                         value={value} style={styles.input}
-                         secureTextEntry={secureTextEntry} keyboardType={keyboardType}/>
-            )}/>
-{errors[label] && <Text>campo requerido</Text>}*/

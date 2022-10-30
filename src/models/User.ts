@@ -12,8 +12,13 @@ export interface UserRegister{
   firstName: string
   lastName: string
   email:string
-  numberPhone: number
   userName: string
   password: string
 }
-
+export const RegisterValues: UserRegister = {
+  firstName: '',
+  lastName: '',
+  email:'',
+  userName: '',
+  password: '',
+}

@@ -1,19 +1,21 @@
 import React, { ReactElement } from "react";
 import { View } from "react-native";
-/*
-import { FormProvider } from 'react-hook-form';
-*/
 
 type FormProps = {
-  body: ReactElement,
-  methods:any
+  children: ReactElement,
+  methods: any
 }
 
-export default function Form(props:FormProps){
-  const { body, methods } = props
-  return <View style={{width: '100%'}}>
-    {/*<FormProvider {...methods}>
-      {body}
-    </FormProvider>*/}
-  </View>
+export const FormContext = React.createContext(null);
+
+export default function Form<T extends Object>(props:FormProps){
+  const { children, methods } = props
+  const {onChange} = methods
+  return (
+    <View style={{width: '100%'}}>
+        <FormContext.Provider value={onChange} >
+          {children}
+        </FormContext.Provider>
+    </View>
+  )
 }
