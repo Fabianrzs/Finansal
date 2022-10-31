@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
 import LoginScreen from "../screens/user/loginScreen";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, StackScreenProps } from "@react-navigation/stack";
 import RegisterScreen from "../screens/user/registerScreen";
 import TabNavigator from "./TabNavigator";
 import { AuthContext } from "../context/AuthContext";
 import Loader from "../components/common/Loader";
+import { lightWhite } from "../themes/_varibles";
 
 const Stack = createStackNavigator();
 
-export default function StackNavigator(){
+interface Props extends  StackScreenProps<any, any>{};
+
+export default function StackNavigator({navigation, route}: Props){
   
   const {status} = useContext(AuthContext);
   
@@ -16,10 +19,20 @@ export default function StackNavigator(){
     return <Loader/>
   }
   
+  
+  
   return(
       <Stack.Navigator
         screenOptions={{
-          headerShown: false,}}>
+          headerStyle:{
+            elevation: 0,
+            shadowColor: 'transparent'
+          },
+          cardStyle: {
+            backgroundColor: lightWhite
+          },
+          headerShown: false
+          }}>
         {(status === 'auth')?
           <Stack.Screen name="Loged" component={TabNavigator} />
           :<>
