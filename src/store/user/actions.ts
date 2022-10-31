@@ -4,3 +4,4 @@ export type AuthAction =
   | {type: 'removeError'}
   | {type: 'no-auth'}
   | {type: 'logout'}
+  | {type: 'loaded'}

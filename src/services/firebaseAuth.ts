@@ -3,14 +3,13 @@ import { UserLogin, UserRegister } from "../models/User";
 import { auth } from "../utils/FireBase";
 import firebase from "firebase";
 
-
 export default{
   async login({ email,password }:UserLogin){
     try {
       const response = await auth.signInWithEmailAndPassword(email, password);
       return response;
     }catch (error){
-      console.log({ error });
+      console.log(error);
       throw { error }
     }
   },
@@ -19,7 +18,7 @@ export default{
       const response = await auth.createUserWithEmailAndPassword(email, password);
       return response;
     }catch (error){
-      console.log({ error });
+      console.log(error);
       throw { error }
     }
   }

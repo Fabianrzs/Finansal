@@ -1,4 +1,4 @@
-import {AddError, Logout, NoAuth, RemoveError, SignUp,} from "../ActionTypes";
+import { AddError, Loaded, Logout, NoAuth, RemoveError, SignUp } from "../ActionTypes";
 import { AuthAction } from "./actions";
 
 export interface AuthState {
@@ -30,6 +30,11 @@ export const authReducer = (state:AuthState, action:AuthAction):AuthState  => {
         status: 'auth',
         token: action.payload.token,
         user: action.payload.user
+      };
+    case Loaded:
+      return {
+        ...state,
+        status: 'checking'
       };
     case Logout:
     case NoAuth:
