@@ -5,7 +5,7 @@ import Informe from "../screens/aplication/informe";
 import Registro from "../screens/aplication/registro";
 import { Text } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
-import { darkBlack, lightWhite } from "../themes/_varibles";
+import { darkBlack, lightWhite, secondaryWhite } from "../themes/_varibles";
 import { AuthContext } from "../context/AuthContext";
 import Button from "../components/common/Button";
 
@@ -23,7 +23,10 @@ export default function TabNavigator({navigation}:Props){
       headerRight: () => (
         <Button stylesText={{color: darkBlack}} title={"Salir"} onPress={logOut}/>
       ),
-      title: '',
+      title: 'Finansal',
+      headerStyle:{
+        shadowColor: secondaryWhite
+      }
     })
   },[])
   
