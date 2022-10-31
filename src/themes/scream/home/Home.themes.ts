@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
   textValue:{
     flex:1,
     position: "relative",
-    fontWeight: "bold",
     fontSize: 30,
     color: lightWhite,
     alignSelf: "flex-end",
@@ -26,6 +25,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     color: lightWhite,
+     alignItems: "center",
     alignSelf: "center",
     justifyContent: "center"
   },
@@ -38,7 +38,6 @@ export const styles = StyleSheet.create({
     margin:20
   },
   containercard:{
-    backgroundColor: graywhite,
     justifyContent: 'space-around',
     marginTop: 15,
     flexDirection: 'row',

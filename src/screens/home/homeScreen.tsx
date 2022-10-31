@@ -8,14 +8,14 @@ export default function HomeScreen(){
   return(
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.textValue}> Hola </Text>
+        <Text style={styles.textValue}> 25.000.812 </Text>
         <Text style={styles.textSaldo}> Saldo a Favor </Text>
-        <Text style={styles.textUser}> Usuario </Text>
+        <Text style={styles.textUser}>Danneb</Text>
       </View>
       <View>
         <View style={styles.containercard}>
-          <Card value={2000} percentage={20.4}/>
-          <Card value={200} percentage={1.4}/>
+          <Card value={7500} percentage={20.4}/>
+          <Card low value={200000} percentage={79.6}/>
         </View>
       </View>
     </View>
