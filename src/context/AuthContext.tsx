@@ -31,13 +31,15 @@ export const AuthProvider = ({children}: {children: JSX.Element | JSX.Element[]}
   
   const [ state, dispatch ] = useReducer( authReducer, authInicialState );
   
+  const {login, register} =firebase
+  
   useEffect(()=>{
     checkToken().then()
   },[])
   
   const checkToken = async () =>{
     const data = await AsyncStorage.getItem('token');
-    !data && dispatch({type: 'no-auth'})
+    !data ? dispatch({type: 'no-auth'}) :
     dispatch({
       type: 'signUp',
       payload: {
@@ -46,9 +48,6 @@ export const AuthProvider = ({children}: {children: JSX.Element | JSX.Element[]}
       }
     })
   }
-  
-  const {apiRestPost} = api
-  const {login, register} =firebase
   
   const signUp = async (data: UserRegister) => {
     try {
@@ -67,7 +66,6 @@ export const AuthProvider = ({children}: {children: JSX.Element | JSX.Element[]}
   const signIn = async (data: UserLogin) => {
     try {
       const { user } = await login(data)
-      console.log("Respuesta ",user)
       dispatch({
         type: 'signUp',
         payload: {
