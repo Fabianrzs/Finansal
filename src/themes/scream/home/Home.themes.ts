@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { lightWhite, primaryBlue } from "../../_varibles";
+import { graywhite, lightWhite, primaryBlue } from "../../_varibles";
 
 export const styles = StyleSheet.create({
   container : {
@@ -36,5 +36,13 @@ export const styles = StyleSheet.create({
     color: lightWhite,
     alignSelf: "flex-start",
     margin:20
+  },
+  containercard:{
+    backgroundColor: graywhite,
+    justifyContent: 'space-around',
+    marginTop: 15,
+    flexDirection: 'row',
+    alignContent: 'space-between',
+    minHeight: 80,
   },
 });

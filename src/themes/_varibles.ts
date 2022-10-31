@@ -6,6 +6,7 @@ export const gradientBlue = `linear-gradient(to bottom right ${primaryBlue}, ${s
 
 export const lightWhite = "#ffffff"
 export const secondaryWhite = "#9399AB"
+export const graywhite = '#7B7B7B'
 export const gradientWhite = `linear-gradient(to bottom right ${lightWhite}, ${secondaryWhite})`
 
 
