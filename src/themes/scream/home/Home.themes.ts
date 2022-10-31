@@ -3,7 +3,7 @@ import { graywhite, lightWhite, primaryBlue } from "../../_varibles";
 
 export const styles = StyleSheet.create({
   container : {
-    paddingHorizontal: 30,
+    paddingHorizontal: 10,
     height: "100%",
     backgroundColor: lightWhite
   },

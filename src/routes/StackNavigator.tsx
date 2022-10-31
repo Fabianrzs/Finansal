@@ -19,8 +19,6 @@ export default function StackNavigator({navigation, route}: Props){
     return <Loader/>
   }
   
-  
-  
   return(
       <Stack.Navigator
         screenOptions={{
