@@ -16,12 +16,13 @@ export default function LoginScreen ({ navigation }:any){
 
   const [open, setOpen] = useState<boolean>(false)
   const { onChange, form, email, password } = useForm<UserLogin>(LoginValues)
-  
+  const [loader, setLoader] = useState<boolean>(false)
   const {signIn, errorMessage, removeError} = useContext(AuthContext)
   
   
   const onSubmit = () => {
-      signIn(form)
+    setLoader(true)
+      signIn(form).finally(() => setLoader(false))
   }
   
   useEffect(()=>{
@@ -48,6 +49,7 @@ export default function LoginScreen ({ navigation }:any){
         <Text style={styles.title}>Login</Text>
         {Form}
         <Button
+          loader={loader}
           colorText='light'
           typeButton='outlet'
           title="Login"

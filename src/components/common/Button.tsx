@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity } from "react-native";
 import useButtonStyle from "../../hooks/components/common/useButtonStyle";
+import { lightWhite, primaryBlue } from "../../themes/_varibles";
 
 interface ButtonProps{
   title: string,
@@ -13,10 +14,12 @@ interface ButtonProps{
   disabled?: boolean,
   onLongPress?:  () => void,
   activeOpacity?: number,
+  loader?: boolean,
 }
 
 export default function Button(props:ButtonProps){
-  const {title, onPress, stylesButton, disabled,activeOpacity, typeButton, colorText ,stylesText, onLongPress} = props
+  const {title, onPress, stylesButton, disabled,activeOpacity,
+    typeButton, colorText ,stylesText, onLongPress, loader, size} = props
   const { text, button } = useButtonStyle(typeButton, colorText)
   
   return (
@@ -24,7 +27,8 @@ export default function Button(props:ButtonProps){
                disabled={disabled} activeOpacity={activeOpacity? activeOpacity : 0.9}
                onLongPress={onLongPress}
                onPress={onPress}>
-      <Text style={stylesText? stylesText:text}>{title}</Text>
+  
+      {(loader)? <ActivityIndicator size="small" color={lightWhite} /> : <Text style={stylesText ? stylesText : text}>{title}</Text>}
     </TouchableOpacity>
   )
 }

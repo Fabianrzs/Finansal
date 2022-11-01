@@ -13,7 +13,7 @@ type AuthContextProps = {
   user: any;
   status: 'checking' | 'auth' | 'no-auth';
   signUp: (data: UserRegister) => void;
-  signIn: (data: UserLogin) => void;
+  signIn: (data: UserLogin) => any;
   logOut: () => void;
   removeError: () => void;
 }
