@@ -1,13 +1,14 @@
 import firebase from "firebase"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCUGUDRO3z84DPpJN9Xh__xVyF5_Aul1gs",
-  authDomain: "finansalapp-bb718.firebaseapp.com",
-  projectId: "finansalapp-bb718",
-  storageBucket: "finansalapp-bb718.appspot.com",
-  messagingSenderId: "614037671609",
-  appId: "1:614037671609:web:543bdb7468d81190e75568"
+  apiKey: "AIzaSyA3Y4WFfO2I8-4JUbXmgOgn85XZ0nv7bZI",
+  authDomain: "movil2022-ca457.firebaseapp.com",
+  projectId: "movil2022-ca457",
+  storageBucket: "movil2022-ca457.appspot.com",
+  messagingSenderId: "741604614105",
+  appId: "1:741604614105:web:3b159b3856b70dc94c03c8"
 };
+
 
 let app;
 
