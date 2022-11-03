@@ -44,4 +44,15 @@ export const styles = StyleSheet.create({
     alignContent: 'space-between',
     minHeight: 80,
   },
+  subtitle:{
+    fontSize: 25,
+    marginVertical: 7,
+    fontWeight: "bold",
+  },
+  scrollView:{
+    flex:1,
+    backgroundColor: primaryBlue,
+    height: 500
+  }
+  
 });

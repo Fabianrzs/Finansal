@@ -1,9 +1,13 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { SafeAreaView, ScrollView, SectionList, Text, View } from "react-native";
 import { color } from "react-native-reanimated";
-import Card from "../../components/card";
+import CardDiference from "../../components/cardDiference";
 import { styles } from "../../themes/scream/home/Home.themes";
+import CardUtility from "../../components/cardUtility";
+import { DataHomeDummy } from "../../utils/DummyData";
 export default function HomeScreen(){
+  
+ 
   
   return(
     <View style={styles.container}>
@@ -14,10 +18,30 @@ export default function HomeScreen(){
       </View>
       <View>
         <View style={styles.containercard}>
-          <Card value={7500} percentage={20.4}/>
-          <Card low value={200000} percentage={79.6}/>
+          <CardDiference value={7500} percentage={20.4}/>
+          <CardDiference low value={200000} percentage={79.6}/>
         </View>
       </View>
+      <Text style={styles.subtitle}>Historial</Text>
+      <SafeAreaView style={{
+        flex: 1,
+      }}>
+        <ScrollView>
+          {
+            DataHomeDummy.map((data, index)=>
+              <CardUtility key={index} title={data.title} low={index%2===0}
+                           subTitle={data.subTitle} value={data.value}/> )
+          }
+        </ScrollView>
+        
+        {/*<SectionList
+          sections={DataHomeDummy}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => }
+        />*/}
+      </SafeAreaView>
+     
     </View>
   )
 }
+

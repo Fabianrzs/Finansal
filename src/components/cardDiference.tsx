@@ -8,12 +8,12 @@ interface CardProps {
   low?: boolean,
 }
 
-export default function Card(props: CardProps){
+export default function CardDiference(props: CardProps){
     const {value, percentage, low} = props
 
     return (
         <View style={styles.container}>
-            <View style={[styles.barLeft, low ? styles.barLeftRed: styles.barLeftgren]}></View>
+            <View style={[low ? styles.barLeftRed: styles.barLeftgren, styles.barLeft]}></View>
             <Text style={styles.text}>Peso</Text>
             <Text style={styles.textvalue}>${value}</Text>
             <Text style={[styles.textpercentage, low ? styles.textLeftRed: styles.textLeftgren]}>{percentage}%</Text>
