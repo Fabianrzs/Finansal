@@ -5,10 +5,11 @@ import Informe from "../screens/aplication/informe";
 import Registro from "../screens/aplication/registro";
 import { Text } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
-import { darkBlack, lightWhite, secondaryWhite } from "../themes/_varibles";
+import { darkBlack, lightGray, lightWhite, primaryBlue, secondaryWhite } from "../themes/_varibles";
 import { AuthContext } from "../context/AuthContext";
 import Button from "../components/common/Button";
 import FadeWelcome from "../components/fadeWelcome";
+import Loader from "../components/common/Loader";
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +45,19 @@ export default function TabNavigator({navigation}:Props){
   }
   
   return(
-    <Tab.Navigator>
+    <Tab.Navigator
+    lazy
+    tabBarOptions={{
+      activeTintColor: primaryBlue,
+      activeBackgroundColor: lightGray,
+      labelStyle: {
+        fontSize: 15,
+        fontWeight: "bold"
+      },
+      inactiveTintColor: primaryBlue,
+      inactiveBackgroundColor: lightWhite
+    }}
+    >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Informe" component={Informe} />
       <Tab.Screen name="Registros" component={Registro} />

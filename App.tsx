@@ -12,12 +12,12 @@ const AppState = ({children}: {children: JSX.Element | JSX.Element[]}) => {
   )
 }
 
-const App = () => {
+const App = ({navigation, route}:any) => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
         <AppState>
-          <StackNavigator/>
+          <StackNavigator navigation={navigation} route={route}/>
         </AppState>
       </NavigationContainer>
     </GestureHandlerRootView>

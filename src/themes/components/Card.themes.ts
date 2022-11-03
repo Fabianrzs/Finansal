@@ -41,10 +41,8 @@ export const styles = StyleSheet.create({
   barLeft:{
     width:'20%',
     height: '100%',
-    alignItems: 'flex-start',
     borderTopLeftRadius: 16,
     borderBottomLeftRadius: 16,
-    borderLeftColor: 10,
   },
   barLeftgren:{
     backgroundColor: sucessGren,
