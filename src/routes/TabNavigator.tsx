@@ -32,11 +32,15 @@ export default function TabNavigator({navigation, route}:Props){
     navigation.setOptions({
       headerShown: true,
       headerRight: () => (
-        <Button stylesText={{color: darkBlack}} title={"Salir"} onPress={logOut}/>
+        <Button stylesText={{color: primaryBlue, fontWeight: "bold", }} title={"Salir"} onPress={logOut}/>
       ),
       title: 'Finansal',
-      headerStyle:{
+      headerTitleStyle:{
+        color: primaryBlue,
+        fontWeight: "600",
         
+      },
+      headerStyle:{
         shadowColor: secondaryWhite
       }
     })
