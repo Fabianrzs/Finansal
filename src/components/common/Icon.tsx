@@ -1,15 +1,9 @@
-import React from "react";
-/*
-import  Icon  from "react-native-vector-icons/Ionicons";
-*/
-import { primaryBlue } from "../../themes/_varibles";
-interface IcoonProps{
-  name:string
-  color?:string
-  style?:any
-  size?:number
-}
-export default function Icoon (props: IcoonProps){
-  const {name, color = primaryBlue, size, style} = props
-  return /*<Icon name={name} color={color} style={style} size={size} />*/
+import Icomoon from "react-native-icomoon"
+import type { IconMoonProps } from 'react-native-icomoon'
+import iconSet from '../../assets/selection.json'
+
+type IconProps = Omit<IconMoonProps, "iconSet">
+
+export default function Icon({ name, ...restProps }: IconProps) {
+  return <Icomoon iconSet={iconSet} name={name} {...restProps} />
 }

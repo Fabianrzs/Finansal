@@ -10,12 +10,14 @@ import { AuthContext } from "../context/AuthContext";
 import Button from "../components/common/Button";
 import FadeWelcome from "../components/fadeWelcome";
 import Loader from "../components/common/Loader";
+import { iconByName } from "../utils/utilities";
+import Icon from "../components/common/Icon";
 
 const Tab = createBottomTabNavigator();
 
 interface Props extends  StackScreenProps<any, any>{};
 
-export default function TabNavigator({navigation}:Props){
+export default function TabNavigator({navigation, route}:Props){
   
   const [initial, setInitial] = useState<boolean>(true);
   const {logOut} =  useContext(AuthContext)
@@ -34,6 +36,7 @@ export default function TabNavigator({navigation}:Props){
       ),
       title: 'Finansal',
       headerStyle:{
+        
         shadowColor: secondaryWhite
       }
     })
@@ -47,13 +50,16 @@ export default function TabNavigator({navigation}:Props){
   return(
     <Tab.Navigator
     lazy
+    screenOptions={({route}) => ({
+      tabBarIcon: ({color, focused, size}) => {
+        const icon = iconByName(route.name);
+        return <Icon name={icon} size={23} color={primaryBlue}/>;
+      }
+    })}
     tabBarOptions={{
       activeTintColor: primaryBlue,
       activeBackgroundColor: lightGray,
-      labelStyle: {
-        fontSize: 15,
-        fontWeight: "bold"
-      },
+      labelStyle: {display:"none"},
       inactiveTintColor: primaryBlue,
       inactiveBackgroundColor: lightWhite
     }}

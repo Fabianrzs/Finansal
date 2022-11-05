@@ -7,8 +7,6 @@ import CardUtility from "../../components/cardUtility";
 import { DataHomeDummy } from "../../utils/DummyData";
 export default function HomeScreen(){
   
- 
-  
   return(
     <View style={styles.container}>
       <View style={styles.card}>
