@@ -31,12 +31,6 @@ export default function HomeScreen(){
                            subTitle={data.subTitle} value={data.value}/> )
           }
         </ScrollView>
-        
-        {/*<SectionList
-          sections={DataHomeDummy}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => }
-        />*/}
       </SafeAreaView>
      
     </View>

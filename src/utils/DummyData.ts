@@ -1,3 +1,5 @@
+import { lightBlue, primaryBlue, secondaryBlue } from "../themes/_varibles";
+
 const max = 100000, min = 10000;
 
 export const DataHomeDummy = [
@@ -45,31 +47,26 @@ export const DataHomeDummy = [
 
 export const dataGraficPaiChart = [
   {
-    name: "Seoul",
-    population: 21500000,
-    color: "rgb(0,98,255)",
+    name: "Utilidades",
+    population: 42,
+    color: primaryBlue,
     legendFontColor: "#7F7F7F",
     legendFontSize: 15
   },
   {
-    name: "Toronto",
-    population: 2800000,
-    color: "#F00",
+    name: "Estudios",
+    population: 30,
+    color: secondaryBlue,
     legendFontColor: "#7F7F7F",
-    legendFontSize: 15
+    legendFontSize: 15,
+    
   },
   {
-    name: "New York",
-    population: 8538000,
-    color: "#00ff3c",
+    name: "jevita",
+    population: 28,
+    color: lightBlue,
     legendFontColor: "#7F7F7F",
-    legendFontSize: 15
+    legendFontSize: 15,
+    
   },
-  {
-    name: "Moscow",
-    population: 11920000,
-    color: "rgb(0, 0, 255)",
-    legendFontColor: "#7F7F7F",
-    legendFontSize: 15
-  }
 ];
