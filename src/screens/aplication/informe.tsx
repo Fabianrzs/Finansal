@@ -1,7 +1,7 @@
 import React from "react";
 import { Dimensions, Text, View } from "react-native";
 import { PieChart,} from "react-native-chart-kit";
-import { dataGraficPaiChart } from "../../utils/DummyData";
+import { dataGraficPaiChartBlue, dataGraficPaiChartRed } from "../../utils/DummyData";
 import { chartConfig } from "../../utils/ChartConfig";
 
 export default function Informe(){
@@ -11,7 +11,7 @@ export default function Informe(){
   return(
     <View>
       <PieChart
-        data={dataGraficPaiChart}
+        data={dataGraficPaiChartBlue}
         width={screenWidth}
         height={200}
         chartConfig={chartConfig}
@@ -21,6 +21,17 @@ export default function Informe(){
         center={[10, 10]}
         absolute
       />
+      <PieChart
+      data={dataGraficPaiChartRed}
+      width={screenWidth}
+      height={200}
+      chartConfig={chartConfig}
+      accessor={"population"}
+      backgroundColor={"transparent"}
+      paddingLeft={"0"}
+      center={[10, 10]}
+      absolute
+    />
     </View>
   )
 }
