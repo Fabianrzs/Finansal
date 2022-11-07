@@ -22,7 +22,10 @@ export default function DetailsScreem({route:{params}, navigation }:any){
   
   return (
     <View style={styles.container}>
-      <Text style={styles.textdetailstitle}>Estado {((!params.stateColor)? "INGRESOS": "GASTOS")}</Text>
+      {(!!params.stateColor)?
+        <Text style={styles.textdetailstitlered}>Estado {((!params.stateColor)? "INGRESOS": "GASTOS")}</Text>:
+        <Text style={styles.textdetailstitlegreen}>Estado {((!params.stateColor)? "INGRESOS": "GASTOS")}</Text>
+      }
       <Text style={styles.textdetailstitle}>Nombre: </Text>
       <Text style={styles.textdetailsparams}>{params.data.title}</Text>
       <Text style={styles.textdetailstitle}>Valor:</Text>

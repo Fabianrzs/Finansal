@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { darkBlack, graywhite, lightWhite, primaryBlue } from "../../_varibles";
+import { dangerRed, darkBlack, graywhite, lightWhite, primaryBlue, sucessGren } from "../../_varibles";
 
 export const styles = StyleSheet.create({
   areaSafe:{
@@ -33,19 +33,35 @@ export const styles = StyleSheet.create({
   },
   textdetailstitle: {
     textAlign: 'justify',
-    fontSize: 15,
+    fontSize: 16,
     left: 20,
     top:10,
-    margin:5,
+    margin:8,
     color: graywhite
   },
   textdetailsparams: {
     textAlign: 'justify',
     position: 'relative',
-    left: 25,
+    left: 50,
     fontSize: 20,
     top:10,
-    margin: 2,
+    margin: 5,
     color: darkBlack
+  },
+  textdetailstitlered: {
+    textAlign: 'justify',
+    fontSize: 24,
+    left: 20,
+    top:10,
+    margin:8,
+    color: dangerRed
+  },
+  textdetailstitlegreen: {
+    textAlign: 'justify',
+    fontSize: 24,
+    left: 20,
+    top:10,
+    margin:8,
+    color: sucessGren,
   },
 });
