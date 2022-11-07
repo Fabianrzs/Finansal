@@ -67,10 +67,10 @@ export default function Informe(){
         absolute
       />
       <View style={styles.containerbuttom}>
-        <Button title="Gastos"  onPress={()=>{
+        <Button stylesButton={styles.buttonStyles} stylesText={styles.textStyles} title="Gastos"  onPress={()=>{
 
         }}/>
-        <Button title="Ingresos" onPress={()=>{
+        <Button stylesButton={styles.buttonStyles} stylesText={styles.textStyles} title="Ingresos" onPress={()=>{
 
         }}/>
       </View>

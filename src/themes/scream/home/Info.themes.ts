@@ -17,4 +17,15 @@ export const styles = StyleSheet.create({
     alignContent: 'space-between',
     minHeight: 50,
   },
+  buttonStyles:{
+    backgroundColor: primaryBlue,
+    borderRadius: 15,
+    width: "40%"
+  },
+  textStyles:{
+    textAlign:"center",
+    fontSize: 20,
+    color: lightWhite,
+    margin:15
+  },
 });
