@@ -16,6 +16,7 @@ export default function useButtonStyle (typeButton:string | undefined, colorText
         setButton(styles.button)
         break;
       case 'FAB':
+        
         break;
       default :
         setButton(styles.button)

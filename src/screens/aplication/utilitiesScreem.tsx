@@ -1,29 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
-import { primaryBlue, secondaryWhite } from "../../themes/_varibles";
+import React from "react";
+import { View } from "react-native";
+import Button from "../../components/common/Button";
+import { styles } from "../../themes/scream/aplication/Register.themes"
 
-export default function UtilitiesScreem({route:{params}, navigation }:any){
-  
-  const [utilityType, setUtilityType] = useState<boolean>(params)
-  const [utilityText, setUtilityText] = useState<string>((!!params)? "Ingreso": "Gastos")
-  
-  useEffect(()=>{
-    navigation.setOptions({
-      headerShown: true,
-      title: "Registro de "+utilityText,
-      headerTitleStyle:{
-        color: primaryBlue,
-        fontWeight: "600",
-      },
-      headerStyle:{
-        shadowColor: secondaryWhite
-      }
-    })
-  },[])
-  
+export default function UtilitiesScreem({ navigation }:any){
   return(
-    <View>
-      <Text style={{textAlign:"center", }}>Hola utilidades</Text>
+    <View style={styles.container}>
+      <Button stylesButton={styles.buttonStyles} stylesText={styles.textStyles}
+              title={"Ingresos"} onPress={()=> navigation.navigate('Utilities', true)}/>
+      <Button stylesButton={styles.buttonStyles} stylesText={styles.textStyles}
+              title={"Gastos"} onPress={()=> navigation.navigate('Utilities', false)}/>
     </View>
   )
 }

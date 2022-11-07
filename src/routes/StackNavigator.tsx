@@ -6,8 +6,8 @@ import TabNavigator from "./TabNavigator";
 import { AuthContext } from "../context/AuthContext";
 import Loader from "../components/common/Loader";
 import { lightWhite } from "../themes/_varibles";
-import UtilitiesScreem from "../screens/aplication/utilitiesScreem";
 import DetailsScreem from "../screens/aplication/detailsScreem";
+import RegisterUtilitiesScreem from "../screens/aplication/registerUtilitiesScreem";
 
 
 const Stack = createStackNavigator();
@@ -37,7 +37,7 @@ export default function StackNavigator({navigation, route}: Props){
         {(status === 'auth')?
           <>
             <Stack.Screen name="Loged" component={TabNavigator} />
-            <Stack.Screen name="Utilities" component={UtilitiesScreem} />
+            <Stack.Screen name="Utilities" component={RegisterUtilitiesScreem} />
             <Stack.Screen name="Details" component={DetailsScreem} />
           </>
           :<>
