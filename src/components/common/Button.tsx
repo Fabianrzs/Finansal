@@ -4,7 +4,7 @@ import useButtonStyle from "../../hooks/components/common/useButtonStyle";
 import { lightWhite, primaryBlue } from "../../themes/_varibles";
 
 interface ButtonProps{
-  title: string,
+  title: string | JSX.Element,
   onPress: ()=> void,
   typeButton?: 'outlet' | 'btn' | 'FAB' | undefined,
   colorText?:'primary' | 'danger' | 'light' | 'dark' | 'susses' | undefined,

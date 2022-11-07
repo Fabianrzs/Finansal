@@ -39,6 +39,7 @@ export const styles = StyleSheet.create({
     left: 40,
   },
   barLeft:{
+    justifyContent:"center",
     width:'20%',
     height: '100%',
     borderTopLeftRadius: 16,

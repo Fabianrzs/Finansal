@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import HomeScreen from "../screens/home/homeScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Informe from "../screens/aplication/informe";
-import Registro from "../screens/aplication/registro";
-import { Text } from "react-native";
+import { Alert, Text } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
 import { darkBlack, lightGray, lightWhite, primaryBlue, secondaryWhite } from "../themes/_varibles";
 import { AuthContext } from "../context/AuthContext";
@@ -12,6 +10,8 @@ import FadeWelcome from "../components/fadeWelcome";
 import Loader from "../components/common/Loader";
 import { iconByName } from "../utils/utilities";
 import Icon from "../components/common/Icon";
+import InformeScreen from "../screens/aplication/informeScreen";
+import RegisterScreen from "../screens/aplication/registerScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -28,17 +28,31 @@ export default function TabNavigator({navigation, route}:Props){
     },5000)
   },[])
   
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Cerrar Session",
+      "Quieres Salir de tu cuenta?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel"
+        },
+        { text: "OK", onPress: logOut }
+      ]
+    );
+  
   const updateView = () => {
     navigation.setOptions({
       headerShown: true,
       headerRight: () => (
-        <Button stylesText={{color: primaryBlue, fontWeight: "bold", }} title={"Salir"} onPress={logOut}/>
+        <Button stylesText={{color: primaryBlue, fontWeight: "bold", }}
+                title={<Icon name={"login"} color={primaryBlue}/>}
+                onPress={createTwoButtonAlert}/>
       ),
       title: 'Finansal',
       headerTitleStyle:{
         color: primaryBlue,
         fontWeight: "600",
-        
       },
       headerStyle:{
         shadowColor: secondaryWhite
@@ -69,8 +83,8 @@ export default function TabNavigator({navigation, route}:Props){
     }}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Informe" component={Informe} />
-      <Tab.Screen name="Registros" component={Registro} />
+      <Tab.Screen name="Informe" component={InformeScreen} />
+      <Tab.Screen name="Registros" component={RegisterScreen} />
     </Tab.Navigator>
   )
 }

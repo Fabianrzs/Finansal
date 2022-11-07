@@ -22,7 +22,7 @@ export default function LoginScreen ({ navigation }:any){
   
   const onSubmit = () => {
     setLoader(true)
-      signIn(form).finally(() => setLoader(false))
+    signIn(form).finally(() => setLoader(false))
   }
   
   useEffect(()=>{

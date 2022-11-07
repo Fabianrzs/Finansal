@@ -4,7 +4,7 @@ import { PieChart,} from "react-native-chart-kit";
 import { dataGraficPaiChartBlue, dataGraficPaiChartRed } from "../../utils/DummyData";
 import { chartConfig } from "../../utils/ChartConfig";
 
-export default function Informe(){
+export default function InformeScreen(){
   
   const screenWidth = Dimensions.get("screen").width
   
@@ -22,16 +22,16 @@ export default function Informe(){
         absolute
       />
       <PieChart
-      data={dataGraficPaiChartRed}
-      width={screenWidth}
-      height={200}
-      chartConfig={chartConfig}
-      accessor={"population"}
-      backgroundColor={"transparent"}
-      paddingLeft={"0"}
-      center={[10, 10]}
-      absolute
-    />
+        data={dataGraficPaiChartRed}
+        width={screenWidth}
+        height={200}
+        chartConfig={chartConfig}
+        accessor={"population"}
+        backgroundColor={"transparent"}
+        paddingLeft={"0"}
+        center={[10, 10]}
+        absolute
+      />
     </View>
   )
 }
