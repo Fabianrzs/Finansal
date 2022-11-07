@@ -59,6 +59,7 @@ export default function Informe({navigation}:any){
               {
                 DataInfoDummy.map((data, index)=>
                   <TouchableOpacity
+                    key={index}
                     activeOpacity={0.7}
                     onPress={()=>redirect(data)}
                   >
