@@ -6,9 +6,10 @@ export const styles = StyleSheet.create({
     flex:1,
   },
   container: {
-    paddingHorizontal: 10,
-    height: "100%",
-    backgroundColor: lightWhite
+    justifyContent:"flex-start", 
+    alignSelf:"flex-start", 
+    flex:1,
+    backgroundColor: lightWhite,
   },
   containerbuttom:{
     justifyContent: 'flex-end',
@@ -17,9 +18,9 @@ export const styles = StyleSheet.create({
     minHeight: 50,
   },
   buttonStyles:{
-    position: 'absolute',
-    left: 200,
-    top: 220,
+    position: 'relative',
+    left: 250,
+    top: 320,
     borderColor: primaryBlue,
     backgroundColor: lightWhite,
     borderRadius: 100,
@@ -29,5 +30,20 @@ export const styles = StyleSheet.create({
     textAlign:"center",
     fontSize: 30,
     padding:10
+  },
+  textdetailstitle: {
+    textAlign: 'justify',
+    fontSize: 15,
+    left: 20,
+    top:10,
+    margin:5,
+  },
+  textdetailsparams: {
+    textAlign: 'justify',
+    position: 'relative',
+    left: 25,
+    fontSize: 20,
+    top:10,
+    margin: 2
   },
 });

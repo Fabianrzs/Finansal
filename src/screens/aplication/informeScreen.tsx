@@ -21,7 +21,7 @@ export default function Informe({navigation}:any){
   
   const redirect = (data:any) => {
     console.log(data);
-    navigation.navigate("Details",data)
+    navigation.navigate("Details",{data,stateColor})
   }
   
   return (
