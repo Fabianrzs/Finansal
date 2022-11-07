@@ -1,3 +1,5 @@
+import { Dimensions } from "react-native";
+
 export const chartConfig = {
   backgroundGradientFrom: "#bf00ff",
   backgroundGradientFromOpacity: 0,
@@ -8,3 +10,5 @@ export const chartConfig = {
   barPercentage: 0.5,
   useShadowColorFromDataset: false // optional
 };
+
+export const screenWidth = Dimensions.get("screen").width
