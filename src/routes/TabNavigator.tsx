@@ -11,7 +11,7 @@ import Loader from "../components/common/Loader";
 import { iconByName } from "../utils/utilities";
 import Icon from "../components/common/Icon";
 import InformeScreen from "../screens/aplication/informeScreen";
-import RegisterScreen from "../screens/aplication/registerScreen";
+import RegisterUtilitiesScreen from "../screens/aplication/registerUtilitiesScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -84,7 +84,7 @@ export default function TabNavigator({navigation, route}:Props){
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Informe" component={InformeScreen} />
-      <Tab.Screen name="Registros" component={RegisterScreen} />
+      <Tab.Screen name="Registros" component={RegisterUtilitiesScreen} />
     </Tab.Navigator>
   )
 }
