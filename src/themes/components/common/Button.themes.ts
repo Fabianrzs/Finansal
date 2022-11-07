@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { dangerRed, darkBlack, lightWhite, primaryBlue, sucessGren } from "../../_varibles";
 
-export const styles = StyleSheet.create({
+export const styles2 = StyleSheet.create({
   button: {
     backgroundColor: lightWhite,
     padding:15,
