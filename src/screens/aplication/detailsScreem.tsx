@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { Text, View } from "react-native";
+import Button from "../../components/common/Button";
+import { styles } from "../../themes/scream/aplication/Details.themes";
 import { primaryBlue, secondaryWhite } from "../../themes/_varibles";
 
 export default function DetailsScreem({route:{params}, navigation }:any){
@@ -19,6 +21,9 @@ export default function DetailsScreem({route:{params}, navigation }:any){
   return(
     <View style={{justifyContent:"center", alignSelf:"center", flex:1}}>
       <Text>{ JSON.stringify(params, null, 2) } </Text>
+      <View style={styles.containerbuttom}>
+        <Button stylesButton={styles.buttonStyles} stylesText={styles.textStyles} title={"+"} onPress={()=>{}}/>
+      </View>
     </View>
   )
 }

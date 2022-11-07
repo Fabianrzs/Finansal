@@ -38,10 +38,10 @@ export default function Informe({navigation}:any){
         absolute
       />
       <View style={styles.containerbuttom}>
-        <Button stylesButton={styles.buttonStyles} title="Gastos"
-                onPress={()=>setStateColor(false)}/>
-        <Button stylesButton={styles.buttonStyles} title="Ingresos"
+        <Button stylesButton={styles.buttonStyles} stylesText={styles.textStyles} title="Gastos"
                 onPress={()=>setStateColor(true)}/>
+        <Button stylesButton={styles.buttonStyles} stylesText={styles.textStyles} title="Ingresos"
+                onPress={()=>setStateColor(false)}/>
       </View>
       <View style={styles.areaSafe}>
         <SafeAreaView >

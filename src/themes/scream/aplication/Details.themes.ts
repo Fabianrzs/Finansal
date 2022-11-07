@@ -11,16 +11,18 @@ export const styles = StyleSheet.create({
     backgroundColor: lightWhite
   },
   containerbuttom:{
-    justifyContent: 'space-evenly',
+    justifyContent: 'flex-end',
     margin: 15,
-    flexDirection: 'row',
-    alignContent: 'space-between',
+    alignItems: 'flex-end',
     minHeight: 50,
   },
   buttonStyles:{
+    position: 'absolute',
+    left: 200,
+    top: 220,
     borderColor: primaryBlue,
     backgroundColor: lightWhite,
-    borderRadius: 15,
+    borderRadius: 100,
     width: "40%",
     borderWidth: 1,
   },
