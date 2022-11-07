@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { lightWhite, primaryBlue } from "../../_varibles";
+import { darkBlack, graywhite, lightWhite, primaryBlue } from "../../_varibles";
 
 export const styles = StyleSheet.create({
   areaSafe:{
@@ -37,6 +37,7 @@ export const styles = StyleSheet.create({
     left: 20,
     top:10,
     margin:5,
+    color: graywhite
   },
   textdetailsparams: {
     textAlign: 'justify',
@@ -44,6 +45,7 @@ export const styles = StyleSheet.create({
     left: 25,
     fontSize: 20,
     top:10,
-    margin: 2
+    margin: 2,
+    color: darkBlack
   },
 });
