@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyboardType, Text, TextInput, View } from "react-native";
+import { KeyboardType, Text, TextInput, TouchableOpacity, TouchableOpacityComponent, View } from "react-native";
 import { stylesDark, stylesLigth } from "../../themes/components/common/Input.themes";
 import { darkBlack, lightWhite, secondaryWhite } from "../../themes/_varibles";
 import { FormContext } from "./Form";
@@ -10,17 +10,18 @@ type InputProps = {
   onChange: Function
   value: any
   keyboardType: KeyboardType
-  defaultValue?: string|undefined
   secureTextEntry? : boolean
   placeholder?: string
   rules?: any
   placeholderTextColor?: string
-  dark?:boolean
+  dark?:boolean,
+  editable? : boolean
+  onPress?: ()=> void
 }
 
 export default function Input(props: InputProps){
   
-  const { defaultValue, secureTextEntry, name, label,
+  const { secureTextEntry, name, label, editable,onPress,
     rules, placeholder, keyboardType, placeholderTextColor, onChange, value, dark } = props
   
   const styles = dark? stylesDark : stylesLigth;
@@ -28,13 +29,15 @@ export default function Input(props: InputProps){
   return(
     <View style={styles.inputContainer}>
       <Text style={styles.label}>{label}</Text>
-      <TextInput
-        onChangeText={value => onChange(value, name)} value={value}
-        defaultValue={defaultValue} style={styles.inputField}
-        placeholder={placeholder} placeholderTextColor={placeholderTextColor}
-        keyboardType = {keyboardType} underlineColorAndroid={dark? secondaryWhite :lightWhite}
-        secureTextEntry={secureTextEntry} selectionColor={dark? secondaryWhite :lightWhite}
-        />
+     <TouchableOpacity activeOpacity={0.9} onPress={onPress}>
+       <TextInput
+         onChangeText={value => onChange(value, name)} value={value? value.toString(): ""} style={styles.inputField}
+         placeholder={placeholder} placeholderTextColor={placeholderTextColor}
+         keyboardType = {keyboardType} underlineColorAndroid={dark? secondaryWhite :lightWhite}
+         secureTextEntry={secureTextEntry} selectionColor={dark? secondaryWhite :lightWhite}
+         editable={editable}
+       />
+     </TouchableOpacity>
     </View>
   )
 }

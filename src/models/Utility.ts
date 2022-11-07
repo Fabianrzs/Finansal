@@ -1,15 +1,15 @@
 export interface Utility{
   name: string,
   subCategory: string,
-  value: number | null,
-  date: Date | null,
+  value: number|null,
+  date: Date|string,
   comentario: string
 }
 
 export const UtilityValues: Utility = {
- name: "",
+  name: "",
   subCategory: "",
   value: null,
-  date: null,
+  date: new Date(),
   comentario: ""
 }

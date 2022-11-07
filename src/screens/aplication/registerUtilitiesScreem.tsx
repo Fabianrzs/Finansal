@@ -3,6 +3,8 @@ import { Text, View } from "react-native";
 import { primaryBlue, secondaryWhite } from "../../themes/_varibles";
 import FormRegisterUtility from "../../components/forms/formRegisterUtility";
 import { Utility } from "../../models/Utility";
+import Dates from "../../components/common/Date";
+import InputDate from "../../components/common/Date";
 
 export default function RegisterUtilitiesScreem({route:{params}, navigation }:any){
   
@@ -26,11 +28,17 @@ export default function RegisterUtilitiesScreem({route:{params}, navigation }:an
   const onPress = (data: Utility) =>{
     console.log("Data", data);
   }
-  
+  const UtilityValues: Utility = {
+    name: "Ninguno ",
+    subCategory: "Juaz Juaz ",
+    value: 12345,
+    date: new Date(),
+    comentario: "Ninguno"
+  }
   return(
     <View style={{flex: 1, justifyContent: "center"}}>
       <Text style={{textAlign:"center", fontSize: 20, fontWeight: "bold", marginVertical: 5, }}>{"Registro de "+ utilityText}</Text>
-      <FormRegisterUtility onPress={onPress} />
+      <FormRegisterUtility onPress={onPress}  />
     </View>
   )
 }
