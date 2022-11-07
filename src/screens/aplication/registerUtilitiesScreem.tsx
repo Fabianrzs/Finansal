@@ -29,7 +29,7 @@ export default function RegisterUtilitiesScreem({route:{params}, navigation }:an
   
   return(
     <View style={{flex: 1, justifyContent: "center"}}>
-      <Text style={{textAlign:"center", fontSize: 20, fontWeight: "bold", marginBottom: 10, }}>{"Registro de "+ utilityText}</Text>
+      <Text style={{textAlign:"center", fontSize: 20, fontWeight: "bold", marginVertical: 5, }}>{"Registro de "+ utilityText}</Text>
       <FormRegisterUtility onPress={onPress} />
     </View>
   )
