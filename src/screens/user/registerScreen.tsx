@@ -14,7 +14,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 export default function RegisterScreen ({ navigation }:any){
   
-  
+  const [loader, setLoader] = useState<boolean>(false)
   const [open, setOpen] = useState(false)
   const { onChange, form,
     password,firstName,lastName,email } =
@@ -23,7 +23,7 @@ export default function RegisterScreen ({ navigation }:any){
   const {signUp, errorMessage, removeError} = useContext(AuthContext)
   
   const onSubmit = () => {
-    signUp(form)
+    signUp(form).finally(() => setLoader(false))
   }
   
   useEffect(()=>{
@@ -63,6 +63,7 @@ export default function RegisterScreen ({ navigation }:any){
           <Text style={{...styles.title, color:lightWhite}}>Registrar</Text>
           {Form}
           <Button
+            loader={loader}
             title="Registro"
             colorText='primary'
             typeButton={'btn'}
