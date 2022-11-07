@@ -5,6 +5,7 @@ import CardDiference from "../../components/cardDiference";
 import { styles } from "../../themes/scream/home/Home.themes";
 import CardUtility from "../../components/cardUtility";
 import { DataHomeDummy } from "../../utils/DummyData";
+
 export default function HomeScreen(){
   
   return(
