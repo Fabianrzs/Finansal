@@ -1,5 +1,5 @@
-import { StyleSheet,StatusBar  } from "react-native";
-import { darkBlack, lightWhite, primaryBlue } from "../../_varibles";
+import { StyleSheet } from "react-native";
+import { lightWhite, primaryBlue } from "../../_varibles";
 
 export const styles = StyleSheet.create({
   areaSafe:{
@@ -23,13 +23,11 @@ export const styles = StyleSheet.create({
     borderColor: primaryBlue,
     backgroundColor: lightWhite,
     borderRadius: 100,
-    width: "40%",
-    borderWidth: 1,
+    borderWidth: 2,
   },
   textStyles:{
     textAlign:"center",
-    fontSize: 20,
-    color: darkBlack,
-    margin:15
+    fontSize: 30,
+    padding:10
   },
 });

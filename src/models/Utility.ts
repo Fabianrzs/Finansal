@@ -1,5 +1,3 @@
-
-
 export interface Utility{
   name: string,
   subCategory: string,
