@@ -19,8 +19,8 @@ export const styles = StyleSheet.create({
   },
   buttonStyles:{
     position: 'relative',
-    left: 250,
-    top: 320,
+    left: 200,
+    top: 280,
     borderColor: primaryBlue,
     backgroundColor: lightWhite,
     borderRadius: 100,
