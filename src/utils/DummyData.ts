@@ -1,47 +1,64 @@
+import { Utility } from "../models/Utility";
 import { dangerRed, lightBlue, lightRed, primaryBlue, secondaryBlue, secondaryRed } from "../themes/_varibles";
 
 const max = 100000, min = 10000;
 
-export const DataHomeDummy = [
+export const DataHomeDummy:Utility = [
   {
-    title: "Main dishes",
-    subTitle:"Pizza",
+    name: "Main dishes",
+    subCategory:"Pizza",
     value: Math.trunc(Math.random() * (max - min + 1) + min),
+    date: new Date(),
+    comentario: "",
   },
   {
-    title: "Sides",
-    subTitle:"Onion Rings",
+    name: "Sides",
+    subCategory:"Onion Rings",
     value: Math.trunc(Math.random() * (max - min + 1) + min),
+    date: new Date(),
+    comentario: "",
   },
   {
-    title: "Drinks",
-    subTitle:"Coke",
+    name: "Drinks",
+    subCategory:"Coke",
     value: Math.trunc(Math.random() * (max - min + 1) + min),
+    date: new Date(),
+    comentario: "",
   },
   {
-    title: "Desserts",
-    subTitle:"Ice Cream",
+    name: "Desserts",
+    subCategory:"Ice Cream",
     value: Math.trunc(Math.random() * (max - min + 1) + min),
+    date: new Date(),
+    comentario: "",
   },
   {
-    title: "Main dishes",
-    subTitle:"Risotto",
+    name: "Main dishes",
+    subCategory:"Risotto",
     value: Math.trunc(Math.random() * (max - min + 1) + min),
+    date: new Date(),
+    comentario: "",
   },
   {
-    title: "Sides",
-    subTitle:"French Fries",
+    name: "Sides",
+    subCategory:"French Fries",
     value: Math.trunc(Math.random() * (max - min + 1) + min),
+    date: new Date(),
+    comentario: "",
   },
   {
-    title: "Drinks",
-    subTitle:"Water",
+    name: "Drinks",
+    subCategory:"Water",
     value: Math.trunc(Math.random() * (max - min + 1) + min),
+    date: new Date(),
+    comentario: "",
   },
   {
-    title: "Desserts",
-    subTitle:"Cheese Cake",
+    name: "Desserts",
+    subCategory:"Cheese Cake",
     value: Math.trunc(Math.random() * (max - min + 1) + min),
+    date: new Date(),
+    comentario: "",
   },
 ];
 

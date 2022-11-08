@@ -13,7 +13,7 @@ import Button from "../../components/common/Button";
 import { styles } from "../../themes/scream/home/Info.themes";
 import { DataInfoDummy } from "../../utils/DummyDataInfo";
 import { chartConfig, screenWidth } from "../../utils/ChartConfig";
-import { dataGraficPaiChartBlue, dataGraficPaiChartRed } from "../../utils/DummyData";
+import { dataGraficPaiChartBlue, dataGraficPaiChartRed, DataHomeDummy } from "../../utils/DummyData";
 
 export default function Informe({navigation}:any){
 
@@ -57,14 +57,14 @@ export default function Informe({navigation}:any){
         <SafeAreaView >
             <ScrollView>
               {
-                DataInfoDummy.map((data, index)=>
+                DataHomeDummy.map((data, index)=>
                   <TouchableOpacity
                     key={index}
                     activeOpacity={0.7}
                     onPress={()=>redirect(data)}
                   >
-                    <CardUtility key={index} title={data.title} low={stateColor}
-                                 subTitle={data.subTitle} value={data.value}/>
+                    <CardUtility key={index} name={data.name} low={stateColor}
+                                 subCategory={data.subCategory} value={data.value}/>
                   </TouchableOpacity>
                    )
               }

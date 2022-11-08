@@ -29,11 +29,12 @@ export default function DetailsScreem({route:{params}, navigation }:any){
         ]}>Estado {((!params.stateColor)?
           "INGRESOS": "GASTOS")}</Text>
       <Text style={styles.textdetailstitle}>Nombre: </Text>
-      <Text style={styles.textdetailsparams}>{params.data.title}</Text>
+      <Text style={styles.textdetailsparams}>{params.data.name}</Text>
       <Text style={styles.textdetailstitle}>Valor:</Text>
       <Text style={styles.textdetailsparams}>{params.data.value}</Text>
-      <Text style={styles.textdetailstitle}>Fecha:</Text>
-      <Text style={styles.textdetailsparams}>{params.data.subTitle}</Text>
+      <Text style={styles.textdetailstitle}>SubCategoria:</Text>
+      <Text style={styles.textdetailsparams}>{params.data.subCategory}</Text>
+
       <View style={styles.containerbuttom}>
         <Button stylesButton={styles.buttonStyles} stylesText={styles.textStyles}
                 title={<Icon name={"create"} color={primaryBlue} size={25} />} onPress={()=>{}}/>

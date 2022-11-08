@@ -5,6 +5,7 @@ import CardDiference from "../../components/cardDiference";
 import { styles } from "../../themes/scream/home/Home.themes";
 import CardUtility from "../../components/cardUtility";
 import { DataHomeDummy } from "../../utils/DummyData";
+import { DataInfoDummy } from "../../utils/DummyDataInfo";
 
 export default function HomeScreen(){
   
@@ -28,8 +29,8 @@ export default function HomeScreen(){
         <ScrollView>
           {
             DataHomeDummy.map((data, index)=>
-              <CardUtility key={index} title={data.title} low={index%2===0}
-                           subTitle={data.subTitle} value={data.value}/> )
+              <CardUtility key={index} name={data.name} low={index%2===0}
+                      subCategory={data.subCategory} value={data.value}/> )
           }
         </ScrollView>
       </SafeAreaView>
