@@ -9,7 +9,7 @@ export const DataHomeDummy:Utility = [
     subCategory:"Pizza",
     value: Math.trunc(Math.random() * (max - min + 1) + min),
     date: new Date(),
-    comentario: "",
+    comentario: "Hola",
   },
   {
     name: "Sides",
