@@ -14,13 +14,13 @@ import { styles } from "../../themes/scream/home/Info.themes";
 import { DataInfoDummy } from "../../utils/DummyDataInfo";
 import { chartConfig, screenWidth } from "../../utils/ChartConfig";
 import { dataGraficPaiChartBlue, dataGraficPaiChartRed, DataHomeDummy } from "../../utils/DummyData";
+import { Utility } from "../../models/Utility";
 
 export default function Informe({navigation}:any){
 
   const [stateColor, setStateColor] = useState(false);
   
-  const redirect = (data:any) => {
-    console.log(data);
+  const redirect = (data:Utility) => {
     navigation.navigate("Details",{data,stateColor})
   }
   
@@ -57,14 +57,14 @@ export default function Informe({navigation}:any){
         <SafeAreaView >
             <ScrollView>
               {
-                DataHomeDummy.map((data, index)=>
+                DataHomeDummy.map((data: Utility, index:number)=>
                   <TouchableOpacity
                     key={index}
                     activeOpacity={0.7}
                     onPress={()=>redirect(data)}
                   >
                     <CardUtility key={index} name={data.name} low={stateColor}
-                                 subCategory={data.subCategory} value={data.value}/>
+                                 date={new Date(data.date)} value={Number(data.value)}/>
                   </TouchableOpacity>
                    )
               }

@@ -3,7 +3,7 @@ import { dangerRed, lightBlue, lightRed, primaryBlue, secondaryBlue, secondaryRe
 
 const max = 100000, min = 10000;
 
-export const DataHomeDummy:Utility = [
+export const DataHomeDummy:Utility[] = [
   {
     name: "Main dishes",
     subCategory:"Pizza",

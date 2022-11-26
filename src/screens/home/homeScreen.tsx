@@ -6,6 +6,7 @@ import { styles } from "../../themes/scream/home/Home.themes";
 import CardUtility from "../../components/cardUtility";
 import { DataHomeDummy } from "../../utils/DummyData";
 import { DataInfoDummy } from "../../utils/DummyDataInfo";
+import { Utility } from "../../models/Utility";
 
 export default function HomeScreen(){
   
@@ -28,9 +29,9 @@ export default function HomeScreen(){
       }}>
         <ScrollView>
           {
-            DataHomeDummy.map((data, index)=>
+            DataHomeDummy.map((data: Utility, index: number)=>
               <CardUtility key={index} name={data.name} low={index%2===0}
-                      subCategory={data.subCategory} value={data.value}/> )
+                      date={new Date(data.date)} value={Number(data.value)}/> )
           }
         </ScrollView>
       </SafeAreaView>

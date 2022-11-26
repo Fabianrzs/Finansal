@@ -5,11 +5,18 @@ import FormRegisterUtility from "../../components/forms/formRegisterUtility";
 import { Utility } from "../../models/Utility";
 import Dates from "../../components/common/Date";
 import InputDate from "../../components/common/Date";
+import UtilityBD from "../../services/firebaseUtilityDB"
 
 export default function RegisterUtilitiesScreem({route:{params}, navigation }:any){
   
   const [utilityType, setUtilityType] = useState<boolean>(params)
   const [utilityText, setUtilityText] = useState<string>((!!params)? "Ingresos": "Gastos")
+  
+  const {saveUtility, getUtility} = UtilityBD
+  
+  useEffect(()=>{
+    console.log(getUtility().then());
+  },[])
   
   useEffect(()=>{
     navigation.setOptions({
@@ -25,11 +32,13 @@ export default function RegisterUtilitiesScreem({route:{params}, navigation }:an
     })
   },[])
   
-  const onPress = (data: Utility) =>{
-    console.log("Data", data);
+  const onPress = async (data: Utility) =>{
+    console.log("hola si",UtilityValues);
+    const response = await saveUtility(UtilityValues)
+    console.log("Finalice");
   }
   const UtilityValues: Utility = {
-    name: "Ninguno ",
+    name: "Nuevo jeje  ",
     subCategory: "Juaz Juaz ",
     value: 12345,
     date: new Date(),

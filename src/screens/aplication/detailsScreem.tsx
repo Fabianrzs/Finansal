@@ -27,7 +27,7 @@ export default function DetailsScreem({route:{params}, navigation }:any){
           (!!params.stateColor)?
             styles.textdetailstitlered
             : styles.textdetailstitlegreen
-        ]}><Icon name={(!params.stateColor)?"arrow_upward": "arrow_downward"} color={(!params.stateColor)? sucessGren:dangerRed}/>Estado {((!params.stateColor)?
+        ]}><Icon name={(!params.stateColor)?"flecha-hacia-arriba": "flecha-hacia-abajo"} color={(!params.stateColor)? sucessGren:dangerRed}/>Estado {((!params.stateColor)?
           "INGRESOS": "GASTOS")}</Text>
       <Text style={styles.textdetailstitle}>Nombre: </Text>
       <Text style={styles.textdetailsparams}>{params.data.name}</Text>
@@ -43,7 +43,8 @@ export default function DetailsScreem({route:{params}, navigation }:any){
 
       <View style={styles.containerbuttom}>
         <Button stylesButton={styles.buttonStyles} stylesText={styles.textStyles}
-                title={<Icon name={"create"} color={primaryBlue} size={25} />} onPress={()=>{}}/>
+                title={<Icon name={"create"} color={primaryBlue} size={25} />}
+                onPress={()=>{}}/>
       </View>
     </View>
   )
