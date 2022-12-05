@@ -15,7 +15,10 @@ export default function RegisterUtilitiesScreem({route:{params}, navigation }:an
   const {saveUtility, getUtility} = UtilityBD
   
   useEffect(()=>{
-    console.log(getUtility().then());
+    getUtility().then(data =>{
+      console.log(data)
+    })
+    console.log("Consulta ",);
   },[])
   
   useEffect(()=>{

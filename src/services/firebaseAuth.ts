@@ -1,6 +1,6 @@
 
 import { UserLogin, UserRegister } from "../models/User";
-import { auth } from "../utils/FireBase";
+import { auth } from "../utils/Firebase";
 import firebase from "firebase";
 
 export default{

@@ -1,5 +1,5 @@
 import { Utility } from "../models/Utility";
-import { db } from "../utils/FireBase";
+import { db } from "../utils/Firebase";
 import firebaseDB from  "./firebaseDB"
 import { UTILITY } from "./constansCollections";
 const {add, get, update,} =firebaseDB
@@ -17,10 +17,8 @@ export default {
   },
   async getUtility(){
     try{
-      console.log("Utility");
-      //const request = await db.collection("utilities").get();
-      const request = await get(UTILITY);
-      console.log(request);
+      const request = await get<Utility>(UTILITY);
+      console.log("Request: ",request);
       return request
     }catch (error){
       console.log(error);
